@@ -13,9 +13,6 @@
 - [Screenshots](#-screenshots)
 - [Getting Started](#-getting-started)
 - [Usage](#-usage)
-- [Project Structure](#-project-structure)
-- [Roadmap](#-roadmap)
-- [Contributing](#-contributing)
 - [License](#-license)
 
 ---
@@ -199,30 +196,6 @@ java -jar QuizzClient.jar
   * Student ID
   * Server IP
   * Port
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create a feature branch:
-
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-3. Commit changes:
-
-   ```bash
-   git commit -m "Add new feature"
-   ```
-4. Push to GitHub:
-
-   ```bash
-   git push origin feature/YourFeature
-   ```
-5. Open a Pull Request
 
 ---
 
