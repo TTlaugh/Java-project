@@ -1,61 +1,243 @@
-<h1 align="center">Quizz</h1>
-
-<div align="center">A Quiz manager for schools, teachers or simply want to organize a quiz test</div>
-<br/>
-
+# 🎯 Quizz System
 <a href="https://github.com/ttasc/Quizz"><img src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/Overview.png" width="100%" alt="" /></a>
 
-## About
-Quizz is a useful tool that supports the process of organizing and managing multiple-choice tests, especially in educational and training environments. This software helps automate many manual tasks, from creating test questions, managing question banks, to scoring and analyzing results.
+> A distributed quiz management system for schools and training environments — enabling teachers to create, manage, and distribute exams over LAN with real-time monitoring.
 
-Quizz is written in Java. It's free, open-source and cross-platform software.
+---
 
-## Features
-- **Server**
-  - Multiple workspaces for various educational purposes
-  - Exam distribution via LAN
-  - Management:
-    - Exam (the exam question can be shuffled)
-    - Submission
-    - Group - Student
-    - Subject - Question
-- **Client**
-  - Join the test and hope it's not too hard
+## 📌 Table of Contents
+- [About The Project](#-about-the-project)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture Overview](#-architecture-overview)
+- [Screenshots](#-screenshots)
+- [Getting Started](#-getting-started)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-## Installation
-### Dependencies
-- Java-17
-- MySQL/MariaDB
+---
 
-> ##### Setup Database:
-> - Username: `root`
-> - Password: `123456789`
-> - URL: `localhost:3306`
->
-> To generate database, please run the sql script `QuizzServerInitTableMySQL.sql` via mysql-cli or mariadb-cli
+## 📖 About The Project
 
-### Download
-See [releases](https://github.com/ttasc/Quizz/releases) for pre-built binaries.
+**Quizz** is a Java-based client-server application designed to simplify the process of organizing and managing multiple-choice exams in educational environments.
 
-### Build from source
-Building from source requires Java-17, [Maven](https://maven.apache.org)
+The system allows teachers to:
+- Create and manage question banks
+- Organize exams across multiple subjects
+- Distribute tests to students over LAN
+- Monitor submissions and analyze results
 
-1. Clone this repo
-2. Then open **QuizzServer** if you want to build *Server App* or open **QuizzClient** to build *Client App* and run this command:
-    ```
-    mvn package
-    ```
-3. The executable will be generated in **bin** folder named **QuizzServer.jar** or **QuizzClient.jar**
+Built as a **lightweight, cross-platform desktop system**, Quizz focuses on reliability, simplicity, and efficient exam management without requiring internet connectivity.
 
-## Previews
-🔍 Hover over image to view tooltip for more details.
+---
+
+## ✨ Features
+
+### 🖥️ Server (Teacher Side)
+- 📚 Multiple workspaces for different classes or use cases
+- 📝 Exam management (with question shuffling)
+- 👨‍🎓 Student & group management
+- 📊 Submission tracking and monitoring
+- 📂 Subject & question bank organization
+- 🌐 Distribute exams via LAN
+
+---
+
+### 💻 Client (Student Side)
+- 🧑 Join exams using server IP + port
+- ⏱️ Take exams in a controlled environment
+- 📤 Submit answers directly to server
+
+---
+
+## 🧰 Tech Stack
+
+| Category        | Technology |
+|----------------|------------|
+| Language       | Java 17 |
+| Architecture   | Client-Server (LAN-based) |
+| Database       | MySQL / MariaDB |
+| Build Tool     | Maven |
+| UI             | Java Desktop (Swing-based) |
+
+---
+
+## 🏗️ Architecture Overview
+
+The system consists of two main components:
+
+### 🖥️ Quizz Server
+- Centralized exam management system
+- Handles:
+  - Question banks
+  - Exam generation
+  - Student tracking
+  - Submission storage
+- Connects to MySQL/MariaDB database
+
+---
+
+### 💻 Quizz Client
+- Lightweight application for students
+- Connects to server via IP + port
+- Provides exam interface and submission flow
+
+---
+
+## 📸 Screenshots
+
 <p align="center">
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/client1.png" alt="" title="Students have to fill their ID, IP address + port of the Teacher's server" />
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/client2.png" alt="" title="Students doing the exam" /> <br/> <br/>
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server1.png" alt="" title="Teachers can monitor the status of students" />
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server2.png" alt="" title="Teachers can view student submission details" /> <br/> <br/>
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server3.png" alt="" title="Creating new Quiz Exam" />
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server4.png" alt="" title="Exam Management main UI" /> <br/> <br/>
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server5.png" alt="" title="Subject Management main UI" />
-  <img align="center" width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server6.png" alt="" title="Student Management main UI" /> <br/> <br/>
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/client1.png" title="Students enter ID and server connection info" />
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/client2.png" title="Exam interface for students" /><br/><br/>
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server1.png" title="Monitor student status" />
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server2.png" title="View submissions" /><br/><br/>
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server3.png" title="Create new exam" />
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server4.png" title="Exam management UI" /><br/><br/>
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server5.png" title="Subject management UI" />
+  <img width="49%" src="https://raw.githubusercontent.com/ttasc/Quizz/master/assets/server6.png" title="Student management UI" />
 </p>
+
+---
+
+## 🚀 Getting Started
+
+### ⚙️ Prerequisites
+
+- Java 17+
+- MySQL or MariaDB
+
+Check Java version:
+```bash
+java -version
+````
+
+---
+
+### 🗄️ Database Setup
+
+```sql id="7k2d0a"
+-- Default configuration
+Username: root
+Password: 123456789
+Host: localhost
+Port: 3306
+```
+
+1. Start MySQL/MariaDB
+2. Run the SQL script:
+
+   ```
+   QuizzServerInitTableMySQL.sql
+   ```
+3. This will initialize the required database schema
+
+---
+
+### 📦 Download
+
+Download pre-built binaries from:
+👉 [https://github.com/ttasc/Quizz/releases](https://github.com/ttasc/Quizz/releases)
+
+---
+
+### 🔨 Build From Source
+
+Requirements:
+
+* Java 17
+* Maven
+
+```bash id="b6t3ap"
+git clone https://github.com/ttasc/Quizz.git
+cd Quizz
+```
+
+Build Server:
+
+```bash
+cd QuizzServer
+mvn package
+```
+
+Build Client:
+
+```bash
+cd QuizzClient
+mvn package
+```
+
+Output:
+
+* `QuizzServer.jar`
+* `QuizzClient.jar`
+
+---
+
+## ▶️ Usage
+
+### 🖥️ Run Server
+
+```bash id="x2m91s"
+java -jar QuizzServer.jar
+```
+
+* Ensure database is running before starting server
+
+---
+
+### 💻 Run Client
+
+```bash id="w8n3pl"
+java -jar QuizzClient.jar
+```
+
+* Enter:
+
+  * Student ID
+  * Server IP
+  * Port
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Commit changes:
+
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. Push to GitHub:
+
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is currently not licensed.
+You may consider adding an MIT License for open-source usage.
+
+---
+
+## 🙌 Acknowledgements
+
+* Java & open-source ecosystem
+* MySQL / MariaDB community
+
+---
+
+> 💡 This project demonstrates practical experience in building distributed desktop systems, database-driven applications, and LAN-based communication for real-world educational use cases.

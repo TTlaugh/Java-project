@@ -98,8 +98,7 @@ public class StartClient {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
-        Submission submission = new Submission(0, hostExam.getHostExamId(), studentID_Sub, (int) timeTaken, score,
-                map);
+        Submission submission = new Submission(0, hostExam.getHostExamId(), studentID_Sub, (int) timeTaken, score, map);
 
         this.submission.send(submission);
 
